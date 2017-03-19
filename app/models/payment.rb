@@ -1,6 +1,9 @@
 class Payment < ApplicationRecord
   # Direct associations
 
+  has_many   :comments,
+             :dependent => :destroy
+
   belongs_to :creditordebitor,
              :class_name => "User",
              :foreign_key => "receiver_id"
