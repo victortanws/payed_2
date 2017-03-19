@@ -24,7 +24,7 @@
           Initiator
         </label>
 
-        <input type="text" id="initiator_id" name="initiator_id" placeholder="Initiator" class="form-control" value="<%= @payment.initiator_id %>">
+        <%= select_tag(:initiator_id, options_from_collection_for_select(User.all, :id, :email, @payment.initiator_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for receiver_id -->
