@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "payment_informations#index"
   # Routes for the My_debt resource:
   # CREATE
   get "/my_debts/new", :controller => "my_debts", :action => "new"
