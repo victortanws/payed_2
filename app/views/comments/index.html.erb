@@ -16,8 +16,20 @@
 
       <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.user.email %></td>
-        <td><%= comment.payment.initiator_id %></td>
+        <td>
+          <% if comment.user.present? %>
+            <a href="/users/<%= comment.user.id %>">
+              <%= comment.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if comment.payment.present? %>
+            <a href="/payments/<%= comment.payment.id %>">
+              <%= comment.payment.initiator_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/comments/<%= comment.id %>" class="btn btn-primary">Show</a>
           

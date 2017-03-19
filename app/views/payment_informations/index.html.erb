@@ -18,7 +18,13 @@
 
       <% @payment_informations.each do |payment_information| %>
       <tr>
-        <td><%= payment_information.user.email %></td>
+        <td>
+          <% if payment_information.user.present? %>
+            <a href="/users/<%= payment_information.user.id %>">
+              <%= payment_information.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= payment_information.card_number %></td>
         <td><%= payment_information.cardholder_name %></td>
         <td><%= payment_information.card_type %></td>

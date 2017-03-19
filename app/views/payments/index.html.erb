@@ -20,8 +20,20 @@
 
       <% @payments.each do |payment| %>
       <tr>
-        <td><%= payment.initiator.email %></td>
-        <td><%= payment.creditordebitor.email %></td>
+        <td>
+          <% if payment.initiator.present? %>
+            <a href="/users/<%= payment.initiator.id %>">
+              <%= payment.initiator.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if payment.creditordebitor.present? %>
+            <a href="/users/<%= payment.creditordebitor.id %>">
+              <%= payment.creditordebitor.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= payment.description %></td>
         <td><%= payment.amount_paid %></td>
         <td><%= payment.payment %></td>

@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Initiator</dt>
-      <dd><%= @payment.initiator_id %></dd>
+      <dd>
+        <% if @payment.initiator.present? %>
+          <a href="/users/<%= @payment.initiator_id %>">
+            <%= @payment.initiator.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Receiver</dt>
-      <dd><%= @payment.receiver_id %></dd>
+      <dd>
+        <% if @payment.creditordebitor.present? %>
+          <a href="/users/<%= @payment.receiver_id %>">
+            <%= @payment.creditordebitor.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Description</dt>
       <dd><%= @payment.description %></dd>
