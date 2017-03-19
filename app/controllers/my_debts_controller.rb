@@ -1,6 +1,7 @@
 class MyDebtsController < ApplicationController
   def index
-    @my_debts = MyDebt.page(params[:page]).per(10)
+    @q = MyDebt.ransack(params[:q])
+    @my_debts = @q.result(:distinct => true).includes(:initiator, :debtcreditors).page(params[:page]).per(10)
 
     render("my_debts/index.html.erb")
   end

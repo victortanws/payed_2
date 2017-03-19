@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   def index
-    @payments = Payment.page(params[:page]).per(10)
+    @q = Payment.ransack(params[:q])
+    @payments = @q.result(:distinct => true).includes(:initiator, :creditordebitor, :comments, :likes).page(params[:page]).per(10)
 
     render("payments/index.html.erb")
   end
