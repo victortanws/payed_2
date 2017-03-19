@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @payment_information.errors.any? %>
+  <% @payment_information.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Payment Information</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_payment_information" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @payment_information.user_id %>">
+      </div>
+
+      <!-- Label and input for card_number -->
+      <div class="form-group">
+        <label for="card_number" class="control-label">
+          Card number
+        </label>
+
+        <input type="text" id="card_number" name="card_number" placeholder="Card number" class="form-control" value="<%= @payment_information.card_number %>">
+      </div>
+
+      <!-- Label and input for cardholder_name -->
+      <div class="form-group">
+        <label for="cardholder_name" class="control-label">
+          Cardholder name
+        </label>
+
+        <input type="text" id="cardholder_name" name="cardholder_name" placeholder="Cardholder name" class="form-control" value="<%= @payment_information.cardholder_name %>">
+      </div>
+
+      <!-- Label and input for card_type -->
+      <div class="form-group">
+        <label for="card_type" class="control-label">
+          Card type
+        </label>
+
+        <input type="text" id="card_type" name="card_type" placeholder="Card type" class="form-control" value="<%= @payment_information.card_type %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Payment Information
+      </button>
+      or
+      <a href="/payment_informations">Cancel</a>
+    </form>
+  </div>
+</div>

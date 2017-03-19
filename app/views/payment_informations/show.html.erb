@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3>Payment Information #<%= @payment_information.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @payment_information.user_id %></dd>
+
+      <dt>Card number</dt>
+      <dd><%= @payment_information.card_number %></dd>
+
+      <dt>Cardholder name</dt>
+      <dd><%= @payment_information.cardholder_name %></dd>
+
+      <dt>Card type</dt>
+      <dd><%= @payment_information.card_type %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/payment_informations" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/payment_informations/<%= @payment_information.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_payment_information/<%= @payment_information.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
