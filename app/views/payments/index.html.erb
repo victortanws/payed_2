@@ -20,7 +20,7 @@
 
       <% @payments.each do |payment| %>
       <tr>
-        <td><%= payment.initiator_id %></td>
+        <td><%= payment.initiator.email %></td>
         <td><%= payment.receiver_id %></td>
         <td><%= payment.description %></td>
         <td><%= payment.amount_paid %></td>
