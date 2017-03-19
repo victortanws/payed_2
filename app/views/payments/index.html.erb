@@ -21,7 +21,7 @@
       <% @payments.each do |payment| %>
       <tr>
         <td><%= payment.initiator.email %></td>
-        <td><%= payment.receiver_id %></td>
+        <td><%= payment.creditordebitor.email %></td>
         <td><%= payment.description %></td>
         <td><%= payment.amount_paid %></td>
         <td><%= payment.payment %></td>
