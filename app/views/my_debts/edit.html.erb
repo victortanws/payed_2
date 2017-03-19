@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @my_debt.errors.any? %>
+  <% @my_debt.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit My Debt #<%= @my_debt.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_my_debt/<%= @my_debt.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for initiator_id -->
+      <div class="form-group">
+        <label for="initiator_id" class="control-label">
+          Initiator
+        </label>
+
+        <input type="text" id="initiator_id" name="initiator_id" placeholder="Initiator" class="form-control" value="<%= @my_debt.initiator_id %>">
+      </div>
+
+      <!-- Label and input for other_id -->
+      <div class="form-group">
+        <label for="other_id" class="control-label">
+          Other
+        </label>
+
+        <input type="text" id="other_id" name="other_id" placeholder="Other" class="form-control" value="<%= @my_debt.other_id %>">
+      </div>
+
+      <!-- Label and input for amount -->
+      <div class="form-group">
+        <label for="amount" class="control-label">
+          Amount
+        </label>
+
+        <input type="text" id="amount" name="amount" placeholder="Amount" class="form-control" value="<%= @my_debt.amount %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update My Debt
+      </button>
+      or
+      <a href="/my_debts/<%= @my_debt.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
