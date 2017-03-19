@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :creditorsdebitors,
+             :class_name => "Payment",
+             :foreign_key => "receiver_id",
+             :dependent => :destroy
+
   has_many   :payments,
              :foreign_key => "initiator_id",
              :dependent => :destroy
