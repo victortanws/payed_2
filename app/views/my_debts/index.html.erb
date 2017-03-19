@@ -17,7 +17,7 @@
 
       <% @my_debts.each do |my_debt| %>
       <tr>
-        <td><%= my_debt.initiator_id %></td>
+        <td><%= my_debt.initiator.email %></td>
         <td><%= my_debt.other_id %></td>
         <td><%= my_debt.amount %></td>
         <td>
