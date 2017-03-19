@@ -24,7 +24,7 @@
           Payment
         </label>
 
-        <input type="text" id="payment_id" name="payment_id" placeholder="Payment" class="form-control" value="<%= @like.payment_id %>">
+        <%= select_tag(:payment_id, options_from_collection_for_select(Payment.all, :id, :initiator_id, @like.payment_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
