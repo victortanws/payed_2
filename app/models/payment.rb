@@ -1,6 +1,9 @@
 class Payment < ApplicationRecord
   # Direct associations
 
+  has_many   :likes,
+             :dependent => :destroy
+
   has_many   :comments,
              :dependent => :destroy
 
